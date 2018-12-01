@@ -6,6 +6,12 @@ pipeline {
         choice(choices: ['US-EAST-1', 'US-WEST-2'], description: 'What AWS region?', name: 'region')
     }
     
+    options {
+    buildDiscarder(logRotator(numToKeepStr:'3'))
+    timestamps()
+    timeout(time: 120, unit: 'MINUTES')
+    }
+    
     stages {
         stage('Build') {
             steps {
