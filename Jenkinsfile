@@ -15,6 +15,8 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
+                sh "echo ${params.userFlag}"
+                sh "echo ${params.region}"
             }
         }
         stage('Deploy') {
