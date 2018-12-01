@@ -12,6 +12,10 @@ pipeline {
     timeout(time: 120, unit: 'MINUTES')
     }
     
+    withCredentials([usernameColonPassword(credentialsId: 'mypassword', variable: 'USERPASS')]) {
+      sh 'echo uname=$USERNAME pwd=$PASSWORD'
+    }
+    
     stages {
         stage('Build') {
             steps {
