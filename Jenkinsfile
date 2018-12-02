@@ -10,11 +10,7 @@ pipeline {
     buildDiscarder(logRotator(numToKeepStr:'3'))
     timestamps()
     timeout(time: 120, unit: 'MINUTES')
-    }
-    
-   withCredentials([usernamePassword(credentialsId: 'af6bc4ec-4f53-4926-87a8-490c8446cfd5', passwordVariable: 'password1', usernameVariable: 'user1')]) {
-       // some block
-   }
+    }    
     
     stages {
         stage('Build') {
